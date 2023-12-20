@@ -24,10 +24,10 @@ export default function Create() {
       <Navbar />
       <div
         id="hero"
-        className={`w-full h-[100vh] bg-[#D9D9D9] flex flex-col justify-center items-center shadow-lg ${styles.backGround}`}
+        className={`w-full h-[100vh] bg-[#D9D9D9] flex flex-col p-4 justify-center items-center shadow-lg ${styles.backGround}`}
       >
-        <div className="w-full flex flex-col justify-center items-center text-center break-words md:max-w-[60vw]">
-          <p className={` ${karantina.className} text-[#000] text-[8rem] `}>
+        <div className="w-full flex flex-col justify-center p-4 items-center text-center break-words md:max-w-[60vw]">
+          <p className={` ${karantina.className} text-[#000] text-[5rem] md:text-[8rem] `}>
             META-DATA EDITOR
           </p>
           <p className={`text-[1.5rem] text-[#000] ${spaceGrotesk.className}`}>
@@ -41,9 +41,9 @@ export default function Create() {
         >
           <div className="flex flex-col w-full gap-6">
             <div className="w-full flex flex-row justify-center items-center gap-0">
-              <div className="bg-[#121212] w-[15rem] h-[4.5rem] flex flex-row justify-center items-center rounded-l-[0.625rem]">
+              <div className="bg-[#121212] w-[10rem] md:w-[15rem] h-[4.5rem] flex flex-row justify-center items-center rounded-l-[0.625rem]">
                 <p
-                  className={`text-[#EFEFEF] text-[1.5rem] font-[500] ${spaceGrotesk.className}`}
+                  className={`text-[#EFEFEF] text-center text-[1.1rem] p-2 md:text-[1.5rem] font-[500] ${spaceGrotesk.className}`}
                 >
                   URL uploaded
                 </p>
@@ -57,9 +57,9 @@ export default function Create() {
               />
             </div>
             <div className="w-full flex flex-row justify-center items-center gap-0">
-              <div className="bg-[#121212] w-[15rem] h-[4.5rem] flex flex-row justify-center items-center rounded-l-[0.625rem]">
+              <div className="bg-[#121212] w-[10rem] md:w-[15rem] h-[4.5rem] flex flex-row justify-center items-center rounded-l-[0.625rem]">
                 <p
-                  className={`text-[#EFEFEF] text-[1.5rem] font-[500] ${spaceGrotesk.className}`}
+                  className={`text-[#EFEFEF] text-[1.1rem] p-2 md:text-[1.5rem] font-[500] ${spaceGrotesk.className}`}
                 >
                   Title
                 </p>
@@ -72,9 +72,9 @@ export default function Create() {
               />
             </div>
             <div className="w-full flex flex-row justify-center items-center gap-0">
-              <div className="bg-[#121212] w-[15rem] h-[4.5rem] flex flex-row justify-center items-center rounded-l-[0.625rem]">
+              <div className="bg-[#121212] w-[10rem] md:w-[15rem] h-[4.5rem] flex flex-row justify-center items-center rounded-l-[0.625rem]">
                 <p
-                  className={`text-[#EFEFEF] text-[1.5rem] font-[500] ${spaceGrotesk.className}`}
+                  className={`text-[#EFEFEF] text-[1.1rem] p-2 md:text-[1.5rem] font-[500] ${spaceGrotesk.className}`}
                 >
                   Description
                 </p>

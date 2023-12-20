@@ -20,10 +20,10 @@ export default function Home() {
       <Navbar />
       <div
         id="hero"
-        className={`w-full h-[100vh] flex flex-col justify-center items-center shadow-lg ${styles.backGround}`}
+        className={`w-full h-[100vh] bg-[#D9D9D9] flex flex-col justify-center items-center shadow-lg ${styles.backGround}`}
       >
-        <div className="w-full flex flex-col justify-center items-center text-center break-words md:max-w-[60vw]">
-          <p className={` ${karantina.className} text-[#000] text-[8rem] `}>
+        <div className="w-full flex flex-col p-4 justify-center items-center text-center break-words md:max-w-[60vw]">
+          <p className={` ${karantina.className} text-[#000] text-[5rem] md:text-[8rem] `}>
             META-DATA EDITOR
           </p>
           <p className={`text-[1.5rem] text-[#000] ${spaceGrotesk.className}`}>
@@ -37,7 +37,7 @@ export default function Home() {
         className="w-full pt-[64px] h-[100vh] bg-[#F4F7F5] flex flex-col justify-around items-center"
         id="howItWorks"  
       >
-        <div className="w-full flex flex-col justify-center items-center text-center break-words md:max-w-[60vw]">
+        <div className="w-full flex flex-col p-4 justify-center items-center text-center break-words md:max-w-[60vw]">
           <p className={` ${karantina.className} text-[#000] text-[4rem] `}>
             HOW IT WORKS!
           </p>
