@@ -20,20 +20,25 @@ export default function Home() {
       <Navbar />
       <div
         id="hero"
-        className={` w-full h-[100vh] flex flex-col justify-center items-center shadow-lg}`}
+        className={` w-full h-screen flex flex-col justify-center items-center overflow-visible shadow-lg`}
       >
         <img
           src="/Ellipse 1.svg"
           alt="ellipse"
-          className="absolute top-[-10%] left-0 w-auto h-auto"
+          className="absolute top-[-10%] left-0 w-auto max-h-full"
+        />
+        <img
+          src="/Ellipse 2.svg"
+          alt="ellipse"
+          className="absolute bottom-[0px] mb-[-55px] md:mb-0 right-0 w-auto max-h-full"
         />
         <img
           src="/Ellipse 3.svg"
           alt="ellipse"
-          className="absolute  right-0 w-auto h-auto"
+          className="absolute top-[-5%] right-0 w-auto max-h-full"
         />
         <div
-          className={`w-full h-[100vh] absolute top-0 left-0 opacity-30 ${styles.backGround} `}
+          className={`w-full h-screen absolute top-0 left-0 opacity-30 ${styles.backGround} `}
         ></div>
         <div className="w-full flex flex-col p-4 z-10 justify-center items-center text-center break-words md:max-w-[60vw]">
           <p
@@ -41,7 +46,9 @@ export default function Home() {
           >
             META-DATA EDITOR
           </p>
-          <p className={`text-[1rem] md:text-[1.5rem] text-[#000] ${spaceGrotesk.className}`}>
+          <p
+            className={`text-[1rem] md:text-[1.5rem] text-[#000] ${spaceGrotesk.className}`}
+          >
             Modify and personalize metadata for images and links, creating
             tailored content with our user-friendly customization tools.
           </p>
@@ -56,7 +63,9 @@ export default function Home() {
           <p className={` ${karantina.className} text-[#000] text-[4rem] `}>
             HOW IT WORKS!
           </p>
-          <p className={`text-[1rem] md:text-[1.5rem] text-[#000] ${spaceGrotesk.className}`}>
+          <p
+            className={`text-[1rem] md:text-[1.5rem] text-[#000] ${spaceGrotesk.className}`}
+          >
             Use these three simple steps to customize you URLs now!
           </p>
         </div>

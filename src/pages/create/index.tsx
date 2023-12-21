@@ -112,6 +112,11 @@ export default function Create() {
           className="absolute max-h-full top-[-10%] left-0 w-auto h-auto"
         />
         <img
+          src="/Ellipse 2.svg"
+          alt="ellipse"
+          className="absolute max-h-full bottom-0 right-0 w-auto h-auto"
+        />
+        <img
           src="/Ellipse 3.svg"
           alt="ellipse"
           className="absolute max-h-full right-0 w-auto h-auto"
@@ -166,7 +171,7 @@ export default function Create() {
                 onChange={(e) => setImage(e.currentTarget.value)}
               />
             </div>
-            <div className="w-full h-[3.5rem] md:[4.5rem] flex my-2 flex-row justify-center items-center ">
+            <div className="w-full h-[3.5rem] md:h-[4.5rem] flex my-2 flex-row justify-center items-center ">
               <div className="bg-[#121212] min-w-[6rem] md:w-[15rem] h-full flex flex-row justify-center items-center rounded-l-[0.625rem]">
                 <p
                   className={`text-[#EFEFEF] text-[1rem] p-2 md:text-[1.5rem] font-[500] ${spaceGrotesk.className}`}
@@ -207,13 +212,13 @@ export default function Create() {
               id="previewImage"
               src="https://user-images.githubusercontent.com/2351721/31314483-7611c488-ac0e-11e7-97d1-3cfc1c79610e.png"
               alt="preview"
-              className=" object-cover w-[480px] h-[252px] aspect-[120/63] border-[2px] border-black rounded-xl"
+              className="bg-[#F4F7F5] object-contain max-h-[30vh] md:max-h-auto w-[480px] h-[252px] aspect-[120/63] border-[2px] border-black rounded-xl"
             />
             <img src="" id="previewTest" alt="previewTest" className="hidden" />
           </div>
         </div>
         <button
-          className={`w-[14.25rem] z-10 h-[3.125rem] m-4 mb-12 text-[1.5rem] flex flex-row justify-center items-center text-white bg-[#000] rounded-lg ${spaceGrotesk.className} md:hover:scale-110`}
+          className={` z-10 p-4 px-6 md:px-16 m-4 mb-12 text-[1rem] md:text-[1.5rem] flex flex-row justify-center items-center text-white bg-[#000] rounded-lg ${spaceGrotesk.className} active:scale-95`}
           onClick={Publish}
         >
           Publish
@@ -224,22 +229,26 @@ export default function Create() {
           published ? "" : "hidden"
         } fixed h-[100vh] z-30 w-full top-0 left-0 bg-opacity-70 bg-black flex justify-center items-center`}
       >
-        <div className="min-h-[40vh] w-auto md:h-[60vh] md:aspect-square  bg-[#FFF] rounded-3xl flex flex-col justify-center items-center p-4">
-          <div className="w-full flex flex-row justify-between items-center px-4">
+        <div className="min-h-[40vh] max-w-[90vw] w-auto md:h-[50vh] md:aspect-square  bg-[#FFF] rounded-3xl flex flex-col justify-center items-center p-6">
+          <div className="w-full flex flex-row justify-between items-center ">
             <p
               className={`text-[#000] ${spaceGrotesk.className} text-[1.5rem] font-[700] leading-[140%] md:text-[2rem] `}
             >
               Share this post
             </p>
             <button
-              className="rounded-full bg-black text-white px-2 mt-1"
+              className="rounded-full max-h-[80%] p-2 active:scale-95"
               onClick={() => setPublished(false)}
             >
-              X
+              <img
+                src="/close.svg"
+                alt="close"
+                className="w-[1.5rem] h-[1.5rem]"
+              />
             </button>
           </div>
           <div
-            className=" w-full m-4 h-32 border rounded-xl flex flex-row justify-start items-center"
+            className=" w-full m-4 mx-8 h-28 border rounded-lg border-[#929292] flex flex-row justify-start items-center"
             id="previewDetails"
           >
             <img
@@ -262,11 +271,11 @@ export default function Create() {
           </div>
           <div className="w-full flex flex-col justify-center items-center">
             <p
-              className={`text-[#000] ${spaceGrotesk.className} px-4 self-start font-[500] text-[1.5rem]`}
+              className={`text-[#000] ${spaceGrotesk.className} self-start font-[500] text-[1.5rem]`}
             >
               Share this link via
             </p>
-            <div className="w-full flex flex-row justify-evenly items-center">
+            <div className="w-[110%] pt-4 flex flex-row justify-evenly items-center">
               <FacebookShareButton url={result}>
                 <FacebookIcon size={"3rem"} round={true} />
               </FacebookShareButton>
@@ -286,13 +295,25 @@ export default function Create() {
           </div>
           <div className="w-full flex flex-col justify-center items-center">
             <p
-              className={`text-[#000] ${spaceGrotesk.className} p-4 self-start font-[500] text-[1.5rem]`}
+              className={`text-[#000] ${spaceGrotesk.className} py-4 self-start font-[500] text-[1.5rem]`}
             >
               Or copy link address
             </p>
-            <div className="w-full flex flex-row justify-evenly items-center">
+            <div className="w-full flex flex-row justify-between items-center border rounded-lg border-[#929292] ">
+              <div className="flex flex-row p-4 h-full w-auto text-[1.25rem] text-[#000] font-[500] leading-[130%] overflow-hidden">
+                <img
+                  src="/link.svg"
+                  alt="link"
+                  className="w-auto h-[1.5rem] m-auto mr-2 hidden md:block"
+                />
+                <p
+                  className={`text-[#000] ${spaceGrotesk.className} w-max text-[1rem] font-[500] leading-[130%] md:text-[1.5rem] text-nowrap text-ellipsis overflow-hidden`}
+                >
+                  {result}
+                </p>
+              </div>
               <button
-                className={` w-[8rem] p-2 text-[1.5rem] flex flex-row justify-center items-center text-white bg-[#000] rounded-lg ${spaceGrotesk.className} md:active:scale-110`}
+                className={` w-auto p-2 md:py-0  mx-2 text-[1rem] md:text-[1.5rem] flex flex-row justify-center items-center text-white bg-[#000] rounded-lg ${spaceGrotesk.className} active:scale-95`}
                 onClick={Copy}
               >
                 Copy
