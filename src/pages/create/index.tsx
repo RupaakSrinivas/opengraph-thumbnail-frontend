@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import styles from "@/styles/index.module.css";
 import Image from "next/image";
 
+
 import {
   FacebookShareButton,
   FacebookIcon,
@@ -71,7 +72,7 @@ export default function Create() {
     }
   }, [image]);
 
-  const baseUrl = "http://localhost:3000/v1";
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
 
   const Publish = () => {
     const formattedUrl = `${baseUrl}/opengraph?url=${encodeURIComponent(
@@ -330,16 +331,28 @@ export default function Create() {
               className="w-auto m-2 max-h-[90%] text-[1rem]"
             />
             <div className="w-[70%] p-2 flex flex-col justify-center items-start">
-              <p
+              {/* <p
                 className={`text-[#000] ${spaceGrotesk.className} w-full text-[1.25rem] font-[700] leading-[140%] md:text-[1.5rem] text-nowrap text-ellipsis overflow-hidden`}
               >
                 {title}
-              </p>
-              <p
+              </p> */}
+              <input
+                type="text"
+                className={`text-[#000] ${spaceGrotesk.className} w-full text-[1.25rem] font-[700] leading-[140%] md:text-[1.5rem] text-ellipsis overflow-hidden`}
+                value={title}
+                readOnly={true}
+              />
+              {/* <p
                 className={`text-[#929292] ${spaceGrotesk.className} w-[80%] text-[1rem] my-2 font-[700] leading-[140%] md:text-[1.25rem] text-ellipsis overflow-hidden`}
               >
                 {url}
-              </p>
+              </p> */}
+              <input
+                type="text"
+                className={`text-[#929292] ${spaceGrotesk.className} w-[80%] text-[1rem] my-2 font-[700] leading-[140%] md:text-[1.25rem] text-ellipsis overflow-hidden`}
+                value={url}
+                readOnly={true}
+              />
             </div>
           </div>
           <div className="w-full flex flex-col justify-center items-center">
@@ -379,11 +392,18 @@ export default function Create() {
                   alt="link"
                   className="w-auto h-[1.5rem] m-auto mr-2 hidden md:block"
                 />
-                <p
-                  className={`text-[#000] ${spaceGrotesk.className} w-max text-[1rem] font-[500] leading-[130%] md:text-[1.5rem] text-nowrap text-ellipsis overflow-hidden`}
+                {/* <p
+                  className={`text-[#000] ${spaceGrotesk.className} w-max min-h-[2rem] text-[1rem] font-[500] leading-[130%] md:text-[1.5rem] text-nowrap text-ellipsis overflow-hidden`}
                 >
                   {result}
-                </p>
+                </p> */}
+                <input
+                  type="text"
+                  className={`w-full h-full text-[1rem] md:text-[1.5rem] text-black  text-ellipsis focus:outline-none ${spaceGrotesk.className}`}
+                  value={result}
+                  readOnly={true}
+                >
+                </input>
               </div>
               <button
                 className={` w-auto p-2 md:py-0  mx-2 text-[1rem] md:text-[1.5rem] flex flex-row justify-center items-center text-white bg-[#000] rounded-lg ${spaceGrotesk.className} active:scale-95`}
