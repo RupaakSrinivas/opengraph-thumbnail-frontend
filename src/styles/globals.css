@@ -17,3 +17,21 @@ body {
     )
     rgb(var(--background-start-rgb));
 }
+
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #D9D9D9;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #111;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: salmon;
+}

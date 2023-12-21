@@ -3,6 +3,20 @@ import Navbar from "@/components/Navbar";
 import { Karantina, Space_Grotesk } from "next/font/google";
 import { useEffect, useState } from "react";
 import styles from "@/styles/index.module.css";
+import Image from "next/image";
+
+import {
+  FacebookShareButton,
+  FacebookIcon,
+  TwitterShareButton,
+  TwitterIcon,
+  LinkedinIcon,
+  LinkedinShareButton,
+  TelegramIcon,
+  TelegramShareButton,
+  WhatsappIcon,
+  WhatsappShareButton,
+} from "next-share";
 
 const karantina = Karantina({
   subsets: ["latin"],
@@ -71,9 +85,9 @@ export default function Create() {
   const Copy = async () => {
     try {
       await navigator.clipboard.writeText(result);
-      window.alert("Text copied to clipboard");
+      // window.alert("Text copied to clipboard");
     } catch (error) {
-      console.error("Failed to copy text to clipboard:", error);
+      window.alert(error);
     }
   };
 
@@ -90,7 +104,7 @@ export default function Create() {
       <Navbar />
       <div
         id="createPage"
-        className={`bg-[#D9D9D9] flex flex-col px-4 items-center min-h-screen lg:min-h-[100vh]`}
+        className={`bg-[#F4F7F5] flex flex-col px-4 items-center min-h-screen lg:min-h-[100vh]`}
       >
         <img
           src="/Ellipse 1.svg"
@@ -210,23 +224,81 @@ export default function Create() {
           published ? "" : "hidden"
         } fixed h-[100vh] z-30 w-full top-0 left-0 bg-opacity-70 bg-black flex justify-center items-center`}
       >
-        <div className="h-[40vh] md:h-[60vh] aspect-square  bg-[#FFF] rounded-3xl flex flex-col justify-center items-center">
-          <div className="w-full flex flex-row justify-end px-8">
+        <div className="h-[40vh] md:h-[60vh] aspect-square  bg-[#FFF] rounded-3xl flex flex-col justify-center items-center p-4">
+          <div className="w-full flex flex-row justify-between items-center px-4">
+            <p
+              className={`text-[#000] ${spaceGrotesk.className} text-[1.5rem] font-[700] leading-[140%] md:text-[2rem] `}
+            >
+              Share this post
+            </p>
             <button
-              className="rounded-full bg-black text-white p-2"
+              className="rounded-full bg-black text-white px-2 mt-1"
               onClick={() => setPublished(false)}
             >
               X
             </button>
           </div>
-          <p>Copy your link below !!!</p>
-          <p className="w-[80%] text-center text-[1rem] m-6">{result}</p>
-          <button
-            className="w-[14.25rem] h-[3.125rem] m-4 mb-12 text-[1.5rem] flex flex-row justify-center items-center text-white bg-[#000] rounded-lg"
-            onClick={Copy}
+          <div
+            className=" w-full m-4 h-32 border rounded-xl flex flex-row justify-start items-center"
+            id="previewDetails"
           >
-            COPY
-          </button>
+            <img
+              src={image}
+              alt="opengraph Logo"
+              className="w-auto m-2 max-h-[80%] text-[1.8rem] aspect-square"
+            />
+            <div className="flex flex-col justify-center items-start">
+              <p
+                className={`text-[#000] ${spaceGrotesk.className} text-[1.5rem] font-[700] leading-[140%] md:text-[1.5rem] `}
+              >
+                {title}
+              </p>
+              <p
+                className={`text-[#929292] ${spaceGrotesk.className} text-[1.25rem] font-[700] leading-[140%] md:text-[2rem] `}
+              >
+                {url}
+              </p>
+            </div>
+          </div>
+          <div className="w-full flex flex-col justify-center items-center">
+            <p
+              className={`text-[#000] ${spaceGrotesk.className} px-4 self-start font-[500] text-[1.5rem]`}
+            >
+              Share this link via
+            </p>
+            <div className="w-full flex flex-row justify-evenly items-center">
+              <FacebookShareButton url={result}>
+                <FacebookIcon size={"3rem"} round={true} />
+              </FacebookShareButton>
+              <TwitterShareButton url={result}>
+                <TwitterIcon size={"3rem"} round={true} />
+              </TwitterShareButton>
+              <LinkedinShareButton url={result}>
+                <LinkedinIcon size={"3rem"} round={true} />
+              </LinkedinShareButton>
+              <TelegramShareButton url={result}>
+                <TelegramIcon size={"3rem"} round={true} />
+              </TelegramShareButton>
+              <WhatsappShareButton url={result}>
+                <WhatsappIcon size={"3rem"} round={true} />
+              </WhatsappShareButton>
+            </div>
+          </div>
+          <div className="w-full flex flex-col justify-center items-center">
+            <p
+              className={`text-[#000] ${spaceGrotesk.className} p-4 self-start font-[500] text-[1.5rem]`}
+            >
+              Or copy link address
+            </p>
+            <div className="w-full flex flex-row justify-evenly items-center">
+              <button
+                className={` w-[8rem] p-2 text-[1.5rem] flex flex-row justify-center items-center text-white bg-[#000] rounded-lg ${spaceGrotesk.className} md:active:scale-110`}
+                onClick={Copy}
+              >
+                Copy
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     </>
