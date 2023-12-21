@@ -224,7 +224,7 @@ export default function Create() {
           published ? "" : "hidden"
         } fixed h-[100vh] z-30 w-full top-0 left-0 bg-opacity-70 bg-black flex justify-center items-center`}
       >
-        <div className="h-[40vh] md:h-[60vh] aspect-square  bg-[#FFF] rounded-3xl flex flex-col justify-center items-center p-4">
+        <div className="min-h-[40vh] w-auto md:h-[60vh] md:aspect-square  bg-[#FFF] rounded-3xl flex flex-col justify-center items-center p-4">
           <div className="w-full flex flex-row justify-between items-center px-4">
             <p
               className={`text-[#000] ${spaceGrotesk.className} text-[1.5rem] font-[700] leading-[140%] md:text-[2rem] `}
@@ -244,17 +244,17 @@ export default function Create() {
           >
             <img
               src={image}
-              alt="opengraph Logo"
-              className="w-auto m-2 max-h-[80%] text-[1.8rem] aspect-square"
+              alt="No Image"
+              className="w-auto m-2 max-h-[90%] text-[1rem] aspect-square"
             />
-            <div className="flex flex-col justify-center items-start">
+            <div className="w-[70%] p-2 flex flex-col justify-center items-start">
               <p
-                className={`text-[#000] ${spaceGrotesk.className} text-[1.5rem] font-[700] leading-[140%] md:text-[1.5rem] `}
+                className={`text-[#000] ${spaceGrotesk.className} w-full text-[1.25rem] font-[700] leading-[140%] md:text-[1.5rem] text-nowrap text-ellipsis overflow-hidden`}
               >
                 {title}
               </p>
               <p
-                className={`text-[#929292] ${spaceGrotesk.className} text-[1.25rem] font-[700] leading-[140%] md:text-[2rem] `}
+                className={`text-[#929292] ${spaceGrotesk.className} w-[80%] text-[1rem] my-2 font-[700] leading-[140%] md:text-[1.25rem] text-ellipsis overflow-hidden`}
               >
                 {url}
               </p>
