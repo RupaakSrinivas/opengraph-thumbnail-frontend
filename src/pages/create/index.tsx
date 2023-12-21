@@ -75,6 +75,10 @@ export default function Create() {
   const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
 
   const Publish = () => {
+    if (url === "") {
+      window.alert("Please enter a URL");
+      return;
+    }
     const formattedUrl = `${baseUrl}/opengraph?url=${encodeURIComponent(
       url
     )}&title=${encodeURIComponent(title)}&description=${encodeURIComponent(
@@ -338,7 +342,7 @@ export default function Create() {
               </p> */}
               <input
                 type="text"
-                className={`text-[#000] ${spaceGrotesk.className} w-full text-[1.25rem] font-[700] leading-[140%] md:text-[1.5rem] text-ellipsis overflow-hidden`}
+                className={`text-[#000] ${spaceGrotesk.className} w-full text-[1.25rem] font-[700] leading-[140%] md:text-[1.5rem] text-ellipsis overflow-hidden focus:outline-none`}
                 value={title}
                 readOnly={true}
               />
@@ -349,7 +353,7 @@ export default function Create() {
               </p> */}
               <input
                 type="text"
-                className={`text-[#929292] ${spaceGrotesk.className} w-[80%] text-[1rem] my-2 font-[700] leading-[140%] md:text-[1.25rem] text-ellipsis overflow-hidden`}
+                className={`text-[#929292] ${spaceGrotesk.className} w-[80%] text-[1rem] my-2 font-[700] leading-[140%] md:text-[1.25rem] text-ellipsis overflow-hidden focus:outline-none`}
                 value={url}
                 readOnly={true}
               />
