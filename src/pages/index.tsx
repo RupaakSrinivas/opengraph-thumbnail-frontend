@@ -1,7 +1,6 @@
 import Image from "next/image";
 import { Karantina, Space_Grotesk } from "next/font/google";
 import Navbar from "../components/Navbar";
-import DragAndDrop from "../components/DragAndDrop";
 import styles from "@/styles/index.module.css";
 
 const karantina = Karantina({
@@ -31,7 +30,7 @@ export default function Home() {
             tailored content with our user-friendly customization tools.
           </p>
         </div>
-        <DragAndDrop />
+        <div></div>
       </div>
       <div 
         className="w-full pt-[64px] h-[100vh] bg-[#F4F7F5] flex flex-col justify-around items-center"

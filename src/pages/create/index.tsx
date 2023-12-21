@@ -76,16 +76,24 @@ export default function Create() {
     }
   };
 
+  useEffect(() => {
+    if (published) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+  }, [published]);
+
   return (
-    <div className="w-full h-full">
+    <>
       <Navbar />
       <div
-        id="hero"
-        className={`w-full h-full bg-[#D9D9D9] flex flex-col px-4 items-center `}
+        id="createPage"
+        className={`bg-[#D9D9D9] flex flex-col px-4 items-center min-h-screen lg:min-h-[100vh]`}
       >
-        <div className="w-full max-h-[50vh] h-auto flex flex-col justify-center px-4 mt-[64px] items-center text-center break-words md:max-w-[60vw]">
+        <div className="w-full flex flex-col justify-center px-4 mt-[64px] items-center text-center break-words md:max-w-[60vw]">
           <p
-            className={` ${karantina.className} text-[#000] text-[5rem] md:text-[8rem] `}
+            className={` ${karantina.className} text-[#000] leading-[100%] p-4 text-[5rem] md:text-[7rem] lg:text-[8rem] `}
           >
             META-DATA EDITOR
           </p>
@@ -96,9 +104,9 @@ export default function Create() {
         </div>
         <div
           id="input field"
-          className="w-full h-auto m-8 md:max-w-[83vw] flex flex-col justify-between px-8 items-center md:flex-row"
+          className="w-full h-auto m-8 flex flex-col justify-between  items-center lg:flex-row lg:max-w-[80vw]"
         >
-          <div className="flex flex-col w-full md:w-[50vw]">
+          <div className="flex flex-col w-full m-0 p-0 md:w-[70vw]">
             <div className="w-full h-auto my-2 flex flex-row justify-center items-center">
               <div className="bg-[#121212] w-[10rem] md:w-[15rem] h-[4.5rem] flex flex-row justify-center items-center rounded-l-[0.625rem]">
                 <p
@@ -161,7 +169,7 @@ export default function Create() {
               />
             </div>
           </div>
-          <div className=" aspect-[120/63] m-auto ml-8 h-auto w-auto">
+          <div className=" aspect-[120/63] flex flex-col justify-center items-center m-auto p-4 h-auto w-auto">
             <p
               className={` ${spaceGrotesk.className} text-center text-[1.5rem] text-black p-2`}
             >
@@ -177,7 +185,7 @@ export default function Create() {
           </div>
         </div>
         <button
-          className={`w-[14.25rem] h-[3.125rem] m-4 mb-12 text-[1.5rem] flex flex-row justify-center items-center text-white bg-[#000] rounded-lg ${spaceGrotesk.className} hover:scale-110`}
+          className={`w-[14.25rem] h-[3.125rem] m-4 mb-12 text-[1.5rem] flex flex-row justify-center items-center text-white bg-[#000] rounded-lg ${spaceGrotesk.className} md:hover:scale-110`}
           onClick={Publish}
         >
           Publish
@@ -186,7 +194,7 @@ export default function Create() {
       <div
         className={`${
           published ? "" : "hidden"
-        } absolute overflow-hidden h-full w-full top-0 left-0 bg-opacity-70 bg-black flex justify-center items-center`}
+        } fixed h-[100vh] z-30 w-full top-0 left-0 bg-opacity-70 bg-black flex justify-center items-center`}
       >
         <div className="h-[40vh] md:h-[60vh] aspect-square  bg-[#FFF] rounded-3xl flex flex-col justify-center items-center">
           <div className="w-full flex flex-row justify-end px-8">
@@ -197,7 +205,6 @@ export default function Create() {
               X
             </button>
           </div>
-
           <p>Copy your link below !!!</p>
           <p className="w-[80%] text-center text-[1rem] m-6">{result}</p>
           <button
@@ -208,6 +215,6 @@ export default function Create() {
           </button>
         </div>
       </div>
-    </div>
+    </>
   );
 }
