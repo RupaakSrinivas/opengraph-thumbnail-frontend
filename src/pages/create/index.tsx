@@ -17,6 +17,7 @@ import {
   WhatsappIcon,
   WhatsappShareButton,
 } from "next-share";
+import { clear } from "console";
 
 const karantina = Karantina({
   subsets: ["latin"],
@@ -99,6 +100,23 @@ export default function Create() {
     }
   }, [published]);
 
+  const Clear = (id: string) => {
+    const element = document.getElementById(id) as HTMLInputElement;
+    element.value = "";
+    if (id === "titleInput") {
+      setTitle("");
+    }
+    if (id === "urlInput") {
+      setUrl("");
+    }
+    if (id === "imageInput") {
+      setImage("");
+    }
+    if (id === "descriptionInput") {
+      setDescription("");
+    }
+  };
+
   return (
     <>
       <Navbar />
@@ -126,11 +144,13 @@ export default function Create() {
         ></div>
         <div className="w-full z-10 flex flex-col justify-center px-4 mt-[64px] items-center text-center break-words md:max-w-[60vw]">
           <p
-            className={` ${karantina.className} text-[#000] leading-[100%] p-4 text-[4rem] md:text-[7rem] lg:text-[8rem] `}
+            className={` ${karantina.className} text-[#000] leading-[100%] p-4 text-[4rem] md:text-[6rem] `}
           >
             META-DATA EDITOR
           </p>
-          <p className={`text-[1rem] md:text-[1.5rem] text-[#000] ${spaceGrotesk.className}`}>
+          <p
+            className={`text-[1rem] md:text-[1.5rem] text-[#000] ${spaceGrotesk.className}`}
+          >
             Modify and personalize metadata for images and links, creating
             tailored content with our user-friendly customization tools.
           </p>
@@ -140,8 +160,8 @@ export default function Create() {
           className="w-full z-10 h-auto m-8 flex flex-col justify-center  items-center lg:flex-row lg:max-w-[80vw]"
         >
           <div className="flex flex-col w-full m-0 p-0 md:w-[70vw]">
-            <div className="w-full h-auto my-2 flex flex-row justify-center items-center">
-              <div className="bg-[#121212] min-w-[6rem] md:w-[15rem] h-[3.5rem] md:h-[4.5rem] flex flex-row justify-evenly items-center rounded-l-[0.625rem]">
+            <div className="w-full h-auto my-2 flex flex-row bg-[#FBFBFB] justify-center items-center border-[1px] border-[#92929266] rounded-[0.625rem] overflow-hidden">
+              <div className="bg-[#121212] min-w-[6rem] md:w-[15rem] h-[3.5rem] md:h-[4.5rem] flex flex-row justify-evenly items-center">
                 <p
                   className={`text-[#EFEFEF] text-center text-[1rem] leading-[120%] p-2 md:text-[1.5rem] font-[500] ${spaceGrotesk.className}`}
                 >
@@ -149,57 +169,110 @@ export default function Create() {
                 </p>
               </div>
               <input
+                id="urlInput"
                 type="text"
-                className="w-full m-0 h-[3.5rem] md:h-[4.5rem] p-4 text-[1.2rem] md:text-[1.5rem] text-black bg-[#FBFBFB] border-[1px] border-[#92929266] rounded-r-[0.625rem]"
+                className="w-full m-0 h-full p-4 text-[1.2rem] md:text-[1.5rem] text-black bg-[#FBFBFB] focus:outline-none"
                 placeholder="https://dscvit.com"
                 onChange={(e) => setUrl(e.currentTarget.value)}
                 required
               />
+              <button
+                className={`w-auto max-h-[70%] p-0 m-2 ${
+                  url === "" ? "opacity-0" : "opcaity-100"
+                }`}
+                onClick={() => Clear("urlInput")}
+              >
+                <img
+                  src="/close.svg"
+                  alt="clear"
+                  className="w-auto max-h-[100%] m-auto mr-2 p-1"
+                />
+              </button>
             </div>
-            <div className="w-full h-[3.5rem] md:h-[4.5rem] my-2 flex flex-row justify-center items-center ">
-              <div className="bg-[#121212] min-w-[6rem] md:w-[15rem] h-full flex flex-row justify-center items-center rounded-l-[0.625rem]">
+            <div className="w-full h-[3.5rem] md:h-[4.5rem] bg-[#FBFBFB] my-2 flex flex-row justify-center items-center border-[1px] border-[#92929266] rounded-[0.625rem] overflow-hidden">
+              <div className="bg-[#121212] min-w-[6rem] md:w-[15rem] h-full flex flex-row justify-center items-center">
                 <p
-                  className={`text-[#EFEFEF] text-[1rem] p-2 md:text-[1.5rem] font-[500] ${spaceGrotesk.className}`}
+                  className={`text-[#EFEFEF] text-[1rem] p-2 md:text-[1.5rem] text-center font-[500] ${spaceGrotesk.className}`}
                 >
                   Image URL
                 </p>
               </div>
               <input
+                id="imageInput"
                 type="text"
-                className="w-full m-0 h-full p-4 text-[1.2rem] md:text-[1.5rem] text-black bg-[#FBFBFB] border-[1px] border-[#92929266] rounded-r-[0.625rem]"
+                className="w-full m-0 h-full p-4 text-[1.2rem] md:text-[1.5rem] text-black bg-[#FBFBFB] focus:outline-none"
                 placeholder="https://dscvit.com/logo.png"
                 onChange={(e) => setImage(e.currentTarget.value)}
               />
+              <button
+                className={`w-auto max-h-[70%] p-0 m-2 ${
+                  image === "" ? "opacity-0" : "opcaity-100"
+                }`}
+                onClick={() => Clear("imageInput")}
+              >
+                <img
+                  src="/close.svg"
+                  alt="clear"
+                  className="w-auto max-h-[100%] m-auto mr-2 p-1"
+                />
+              </button>
             </div>
-            <div className="w-full h-[3.5rem] md:h-[4.5rem] flex my-2 flex-row justify-center items-center ">
-              <div className="bg-[#121212] min-w-[6rem] md:w-[15rem] h-full flex flex-row justify-center items-center rounded-l-[0.625rem]">
+            <div className="w-full h-[3.5rem] md:h-[4.5rem] flex bg-[#FBFBFB] my-2 flex-row justify-center items-center border-[1px] border-[#92929266] rounded-[0.625rem] overflow-hidden ">
+              <div className="bg-[#121212] min-w-[6rem] md:w-[15rem] h-full flex flex-row justify-center items-center">
                 <p
-                  className={`text-[#EFEFEF] text-[1rem] p-2 md:text-[1.5rem] font-[500] ${spaceGrotesk.className}`}
+                  className={`text-[#EFEFEF] text-[1rem] text-center p-2 md:text-[1.5rem] font-[500] ${spaceGrotesk.className}`}
                 >
                   Title
                 </p>
               </div>
               <input
+                id="titleInput"
                 type="text"
-                className="w-full m-0 h-full p-4 text-[1.2rem] md:text-[1.5rem] text-black bg-[#FBFBFB] border-[1px] border-[#92929266] rounded-r-[0.625rem]"
+                className="w-full m-0 h-full p-4 text-[1.2rem] md:text-[1.5rem] text-black bg-[#FBFBFB] focus:outline-none"
                 placeholder="GDSC"
                 onChange={(e) => setTitle(e.currentTarget.value)}
               />
+              <button
+                className={`w-auto max-h-[70%] p-0 m-2 ${
+                  title === "" ? "opacity-0" : "opcaity-100"
+                }`}
+                onClick={() => Clear("titleInput")}
+              >
+                <img
+                  src="/close.svg"
+                  alt="clear"
+                  className="w-auto max-h-[100%] m-auto mr-2 p-1"
+                />
+              </button>
             </div>
-            <div className="w-full h-[3.5rem] md:h-[4.5rem] flex my-2 flex-row justify-center items-center ">
-              <div className="bg-[#121212] min-w-[6rem] md:w-[15rem] h-full flex flex-row justify-center items-center rounded-l-[0.625rem]">
+            <div className="w-full h-[3.5rem] md:h-[4.5rem] flex my-2 flex-row justify-center items-center bg-[#FBFBFB] border-[1px] border-[#92929266] rounded-[0.625rem] overflow-hidden">
+              <div className="bg-[#121212] min-w-[6rem] md:w-[15rem] h-full flex flex-row justify-center items-center">
                 <p
-                  className={`text-[#EFEFEF] text-[1rem] p-2 md:text-[1.5rem] font-[500] ${spaceGrotesk.className}`}
+                  className={`text-[#EFEFEF] text-[1rem] text-center p-2 md:text-[1.5rem] font-[500] ${spaceGrotesk.className}`}
                 >
                   Description
                 </p>
               </div>
               <input
+                id="descriptionInput"
                 type="text"
-                className="w-full m-0 h-full p-4 text-[1.2rem] md:text-[1.5rem] text-black bg-[#FBFBFB] border-[1px] border-[#92929266] rounded-r-[0.625rem]"
+                className="w-full m-0 h-full p-4 pr-0 text-[1.2rem] md:text-[1.5rem] text-black bg-[#FBFBFB] focus:outline-none"
                 placeholder="Developer Student Clubs"
+                value={description}
                 onChange={(e) => setDescription(e.currentTarget.value)}
               />
+              <button
+                className={`w-auto max-h-[70%] p-0 m-2 ${
+                  description === "" ? "opacity-0" : "opcaity-100"
+                }`}
+                onClick={() => Clear("descriptionInput")}
+              >
+                <img
+                  src="/close.svg"
+                  alt="clear"
+                  className="w-auto max-h-[100%] m-auto mr-2 p-1"
+                />
+              </button>
             </div>
           </div>
           <div className=" aspect-[120/63] flex flex-col justify-center items-center m-auto py-4 pl-4 h-auto w-auto">
@@ -229,7 +302,7 @@ export default function Create() {
           published ? "" : "hidden"
         } fixed h-[100vh] z-30 w-full top-0 left-0 bg-opacity-70 bg-black flex justify-center items-center`}
       >
-        <div className="min-h-[40vh] max-w-[90vw] w-auto md:h-[50vh] md:aspect-square  bg-[#FFF] rounded-3xl flex flex-col justify-center items-center p-6">
+        <div className="min-h-[40vh] max-w-[90vw] w-auto md:h-[60vh] md:w-[60vh]  bg-[#FFF] rounded-3xl flex flex-col justify-center items-center p-6">
           <div className="w-full flex flex-row justify-between items-center ">
             <p
               className={`text-[#000] ${spaceGrotesk.className} text-[1.5rem] font-[700] leading-[140%] md:text-[2rem] `}
