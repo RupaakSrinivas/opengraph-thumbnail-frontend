@@ -1,9 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import Navbar from "@/components/Navbar";
 import { Karantina, Space_Grotesk } from "next/font/google";
-import Image from "next/image";
 import { useEffect, useState } from "react";
-import styles from "@/styles/index.module.css";
 
 const karantina = Karantina({
   subsets: ["latin"],
@@ -49,13 +47,33 @@ export default function Create() {
         );
       }
     });
-    if(image === "") {
-      previewImage?.setAttribute("src", "https://user-images.githubusercontent.com/2351721/31314483-7611c488-ac0e-11e7-97d1-3cfc1c79610e.png")
+    if (image === "") {
+      previewImage?.setAttribute(
+        "src",
+        "https://user-images.githubusercontent.com/2351721/31314483-7611c488-ac0e-11e7-97d1-3cfc1c79610e.png"
+      );
     }
   }, [image]);
 
+  const baseUrl = "http://localhost:3000/v1";
+
   const Publish = () => {
-    console.log("Publish clicked");
+    const formattedUrl = `${baseUrl}/opengraph?url=${encodeURIComponent(
+      url
+    )}&title=${encodeURIComponent(title)}&description=${encodeURIComponent(
+      description
+    )}&image=${encodeURIComponent(image)}`;
+    setResult(formattedUrl);
+    setPublished(true);
+  };
+
+  const Copy = async () => {
+    try {
+      await navigator.clipboard.writeText(result);
+      window.alert("Text copied to clipboard");
+    } catch (error) {
+      console.error("Failed to copy text to clipboard:", error);
+    }
   };
 
   return (
@@ -159,11 +177,36 @@ export default function Create() {
           </div>
         </div>
         <button
-          className={`w-[14.25rem] h-[3.125rem] m-4 text-[1.5rem] flex flex-row justify-center items-center text-white bg-[#000] rounded-lg ${spaceGrotesk.className} hover:scale-110`}
+          className={`w-[14.25rem] h-[3.125rem] m-4 mb-12 text-[1.5rem] flex flex-row justify-center items-center text-white bg-[#000] rounded-lg ${spaceGrotesk.className} hover:scale-110`}
           onClick={Publish}
         >
           Publish
         </button>
+      </div>
+      <div
+        className={`${
+          published ? "" : "hidden"
+        } absolute overflow-hidden h-full w-full top-0 left-0 bg-opacity-70 bg-black flex justify-center items-center`}
+      >
+        <div className="h-[40vh] md:h-[60vh] aspect-square  bg-[#FFF] rounded-3xl flex flex-col justify-center items-center">
+          <div className="w-full flex flex-row justify-end px-8">
+            <button
+              className="rounded-full bg-black text-white p-2"
+              onClick={() => setPublished(false)}
+            >
+              X
+            </button>
+          </div>
+
+          <p>Copy your link below !!!</p>
+          <p className="w-[80%] text-center text-[1rem] m-6">{result}</p>
+          <button
+            className="w-[14.25rem] h-[3.125rem] m-4 mb-12 text-[1.5rem] flex flex-row justify-center items-center text-white bg-[#000] rounded-lg"
+            onClick={Copy}
+          >
+            COPY
+          </button>
+        </div>
       </div>
     </div>
   );
