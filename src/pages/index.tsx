@@ -37,11 +37,11 @@ export default function Home() {
         ></div>
         <div className="w-full flex flex-col p-4 z-10 justify-center items-center text-center break-words md:max-w-[60vw]">
           <p
-            className={` ${karantina.className} text-[#000] text-[5rem] md:text-[8rem] `}
+            className={` ${karantina.className} text-[#000] text-[4rem] md:text-[7rem] lg:text-[8rem] `}
           >
             META-DATA EDITOR
           </p>
-          <p className={`text-[1.5rem] text-[#000] ${spaceGrotesk.className}`}>
+          <p className={`text-[1rem] md:text-[1.5rem] text-[#000] ${spaceGrotesk.className}`}>
             Modify and personalize metadata for images and links, creating
             tailored content with our user-friendly customization tools.
           </p>
@@ -56,7 +56,7 @@ export default function Home() {
           <p className={` ${karantina.className} text-[#000] text-[4rem] `}>
             HOW IT WORKS!
           </p>
-          <p className={`text-[1.5rem] text-[#000] ${spaceGrotesk.className}`}>
+          <p className={`text-[1rem] md:text-[1.5rem] text-[#000] ${spaceGrotesk.className}`}>
             Use these three simple steps to customize you URLs now!
           </p>
         </div>

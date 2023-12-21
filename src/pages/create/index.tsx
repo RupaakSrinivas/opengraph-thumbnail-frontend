@@ -117,87 +117,87 @@ export default function Create() {
           className="absolute max-h-full right-0 w-auto h-auto"
         />
         <div
-          className={`w-full h-[100vh] absolute top-0 left-0 opacity-30 ${styles.backGround} `}
+          className={`w-full fixed h-[100%] top-0 left-0 opacity-30 ${styles.backGround} `}
         ></div>
         <div className="w-full z-10 flex flex-col justify-center px-4 mt-[64px] items-center text-center break-words md:max-w-[60vw]">
           <p
-            className={` ${karantina.className} text-[#000] leading-[100%] p-4 text-[5rem] md:text-[7rem] lg:text-[8rem] `}
+            className={` ${karantina.className} text-[#000] leading-[100%] p-4 text-[4rem] md:text-[7rem] lg:text-[8rem] `}
           >
             META-DATA EDITOR
           </p>
-          <p className={`text-[1.5rem] text-[#000] ${spaceGrotesk.className}`}>
+          <p className={`text-[1rem] md:text-[1.5rem] text-[#000] ${spaceGrotesk.className}`}>
             Modify and personalize metadata for images and links, creating
             tailored content with our user-friendly customization tools.
           </p>
         </div>
         <div
           id="input field"
-          className="w-full z-10 h-auto m-8 flex flex-col justify-between  items-center lg:flex-row lg:max-w-[80vw]"
+          className="w-full z-10 h-auto m-8 flex flex-col justify-center  items-center lg:flex-row lg:max-w-[80vw]"
         >
           <div className="flex flex-col w-full m-0 p-0 md:w-[70vw]">
             <div className="w-full h-auto my-2 flex flex-row justify-center items-center">
-              <div className="bg-[#121212] w-[10rem] md:w-[15rem] h-[4.5rem] flex flex-row justify-center items-center rounded-l-[0.625rem]">
+              <div className="bg-[#121212] min-w-[6rem] md:w-[15rem] h-[3.5rem] md:h-[4.5rem] flex flex-row justify-evenly items-center rounded-l-[0.625rem]">
                 <p
-                  className={`text-[#EFEFEF] text-center text-[1.1rem] p-2 md:text-[1.5rem] font-[500] ${spaceGrotesk.className}`}
+                  className={`text-[#EFEFEF] text-center text-[1rem] leading-[120%] p-2 md:text-[1.5rem] font-[500] ${spaceGrotesk.className}`}
                 >
                   URL uploaded
                 </p>
               </div>
               <input
                 type="text"
-                className="w-full m-0 h-[4.5rem] p-4 text-[1.5rem] text-black bg-[#FBFBFB] border-[1px] border-[#92929266] rounded-r-[0.625rem]"
+                className="w-full m-0 h-[3.5rem] md:h-[4.5rem] p-4 text-[1.2rem] md:text-[1.5rem] text-black bg-[#FBFBFB] border-[1px] border-[#92929266] rounded-r-[0.625rem]"
                 placeholder="https://dscvit.com"
                 onChange={(e) => setUrl(e.currentTarget.value)}
                 required
               />
             </div>
-            <div className="w-full h-auto my-2 flex flex-row justify-center items-center ">
-              <div className="bg-[#121212] w-[10rem] md:w-[15rem] h-[4.5rem] flex flex-row justify-center items-center rounded-l-[0.625rem]">
+            <div className="w-full h-[3.5rem] md:h-[4.5rem] my-2 flex flex-row justify-center items-center ">
+              <div className="bg-[#121212] min-w-[6rem] md:w-[15rem] h-full flex flex-row justify-center items-center rounded-l-[0.625rem]">
                 <p
-                  className={`text-[#EFEFEF] text-[1.1rem] p-2 md:text-[1.5rem] font-[500] ${spaceGrotesk.className}`}
+                  className={`text-[#EFEFEF] text-[1rem] p-2 md:text-[1.5rem] font-[500] ${spaceGrotesk.className}`}
                 >
                   Image URL
                 </p>
               </div>
               <input
                 type="text"
-                className="w-full m-0 h-[4.5rem] p-4 text-[1.5rem] text-black bg-[#FBFBFB] border-[1px] border-[#92929266] rounded-r-[0.625rem]"
+                className="w-full m-0 h-full p-4 text-[1.2rem] md:text-[1.5rem] text-black bg-[#FBFBFB] border-[1px] border-[#92929266] rounded-r-[0.625rem]"
                 placeholder="https://dscvit.com/logo.png"
                 onChange={(e) => setImage(e.currentTarget.value)}
               />
             </div>
-            <div className="w-full h-auto flex my-2 flex-row justify-center items-center ">
-              <div className="bg-[#121212] w-[10rem] md:w-[15rem] h-[4.5rem] flex flex-row justify-center items-center rounded-l-[0.625rem]">
+            <div className="w-full h-[3.5rem] md:[4.5rem] flex my-2 flex-row justify-center items-center ">
+              <div className="bg-[#121212] min-w-[6rem] md:w-[15rem] h-full flex flex-row justify-center items-center rounded-l-[0.625rem]">
                 <p
-                  className={`text-[#EFEFEF] text-[1.1rem] p-2 md:text-[1.5rem] font-[500] ${spaceGrotesk.className}`}
+                  className={`text-[#EFEFEF] text-[1rem] p-2 md:text-[1.5rem] font-[500] ${spaceGrotesk.className}`}
                 >
                   Title
                 </p>
               </div>
               <input
                 type="text"
-                className="w-full m-0 h-[4.5rem] p-4 text-[1.5rem] text-black bg-[#FBFBFB] border-[1px] border-[#92929266] rounded-r-[0.625rem]"
+                className="w-full m-0 h-full p-4 text-[1.2rem] md:text-[1.5rem] text-black bg-[#FBFBFB] border-[1px] border-[#92929266] rounded-r-[0.625rem]"
                 placeholder="GDSC"
                 onChange={(e) => setTitle(e.currentTarget.value)}
               />
             </div>
-            <div className="w-full h-auto flex my-2 flex-row justify-center items-center ">
-              <div className="bg-[#121212] w-[10rem] md:w-[15rem] h-[4.5rem] flex flex-row justify-center items-center rounded-l-[0.625rem]">
+            <div className="w-full h-[3.5rem] md:h-[4.5rem] flex my-2 flex-row justify-center items-center ">
+              <div className="bg-[#121212] min-w-[6rem] md:w-[15rem] h-full flex flex-row justify-center items-center rounded-l-[0.625rem]">
                 <p
-                  className={`text-[#EFEFEF] text-[1.1rem] p-2 md:text-[1.5rem] font-[500] ${spaceGrotesk.className}`}
+                  className={`text-[#EFEFEF] text-[1rem] p-2 md:text-[1.5rem] font-[500] ${spaceGrotesk.className}`}
                 >
                   Description
                 </p>
               </div>
               <input
                 type="text"
-                className="w-full m-0 h-[4.5rem] p-4 text-[1.5rem] text-black bg-[#FBFBFB] border-[1px] border-[#92929266] rounded-r-[0.625rem]"
+                className="w-full m-0 h-full p-4 text-[1.2rem] md:text-[1.5rem] text-black bg-[#FBFBFB] border-[1px] border-[#92929266] rounded-r-[0.625rem]"
                 placeholder="Developer Student Clubs"
                 onChange={(e) => setDescription(e.currentTarget.value)}
               />
             </div>
           </div>
-          <div className=" aspect-[120/63] flex flex-col justify-center items-center m-auto p-4 h-auto w-auto">
+          <div className=" aspect-[120/63] flex flex-col justify-center items-center m-auto py-4 pl-4 h-auto w-auto">
             <p
               className={` ${spaceGrotesk.className} text-center text-[1.5rem] text-black p-2`}
             >
@@ -245,7 +245,7 @@ export default function Create() {
             <img
               src={image}
               alt="No Image"
-              className="w-auto m-2 max-h-[90%] text-[1rem] aspect-square"
+              className="w-auto m-2 max-h-[90%] text-[1rem]"
             />
             <div className="w-[70%] p-2 flex flex-col justify-center items-start">
               <p

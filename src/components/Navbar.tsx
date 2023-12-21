@@ -13,17 +13,17 @@ export default function Navbar() {
       <Image
         src="/logo.svg"
         alt="opengraph Logo"
-        className="w-auto max-h-[80%] text-[1.8rem]"
+        className="w-auto max-h-[60%] md:max-h-[80%]"
         width={100}
         height={36}
       />
       {isHome ? (
         <Link href="/create" className="hover:scale-110">
-          <p className="text-[#000] text-[1.5rem]">Get Started</p>
+          <p className="text-[#000] text-[1.25rem] md:text-[1.5rem]">Get Started</p>
         </Link>
       ) : (
         <Link href="/" className="hover:scale-110">
-          <p className="text-[#000] text-[1.5rem]">Home</p>
+          <p className="text-[#000] text-[1.2rem] md:text-[1.5rem]">Home</p>
         </Link>
       )}
     </div>
