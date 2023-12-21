@@ -2,6 +2,7 @@
 import Navbar from "@/components/Navbar";
 import { Karantina, Space_Grotesk } from "next/font/google";
 import { useEffect, useState } from "react";
+import styles from "@/styles/index.module.css";
 
 const karantina = Karantina({
   subsets: ["latin"],
@@ -91,7 +92,20 @@ export default function Create() {
         id="createPage"
         className={`bg-[#D9D9D9] flex flex-col px-4 items-center min-h-screen lg:min-h-[100vh]`}
       >
-        <div className="w-full flex flex-col justify-center px-4 mt-[64px] items-center text-center break-words md:max-w-[60vw]">
+        <img
+          src="/Ellipse 1.svg"
+          alt="ellipse"
+          className="absolute max-h-full top-[-10%] left-0 w-auto h-auto"
+        />
+        <img
+          src="/Ellipse 3.svg"
+          alt="ellipse"
+          className="absolute max-h-full right-0 w-auto h-auto"
+        />
+        <div
+          className={`w-full h-[100vh] absolute top-0 left-0 opacity-30 ${styles.backGround} `}
+        ></div>
+        <div className="w-full z-10 flex flex-col justify-center px-4 mt-[64px] items-center text-center break-words md:max-w-[60vw]">
           <p
             className={` ${karantina.className} text-[#000] leading-[100%] p-4 text-[5rem] md:text-[7rem] lg:text-[8rem] `}
           >
@@ -104,7 +118,7 @@ export default function Create() {
         </div>
         <div
           id="input field"
-          className="w-full h-auto m-8 flex flex-col justify-between  items-center lg:flex-row lg:max-w-[80vw]"
+          className="w-full z-10 h-auto m-8 flex flex-col justify-between  items-center lg:flex-row lg:max-w-[80vw]"
         >
           <div className="flex flex-col w-full m-0 p-0 md:w-[70vw]">
             <div className="w-full h-auto my-2 flex flex-row justify-center items-center">
@@ -185,7 +199,7 @@ export default function Create() {
           </div>
         </div>
         <button
-          className={`w-[14.25rem] h-[3.125rem] m-4 mb-12 text-[1.5rem] flex flex-row justify-center items-center text-white bg-[#000] rounded-lg ${spaceGrotesk.className} md:hover:scale-110`}
+          className={`w-[14.25rem] z-10 h-[3.125rem] m-4 mb-12 text-[1.5rem] flex flex-row justify-center items-center text-white bg-[#000] rounded-lg ${spaceGrotesk.className} md:hover:scale-110`}
           onClick={Publish}
         >
           Publish

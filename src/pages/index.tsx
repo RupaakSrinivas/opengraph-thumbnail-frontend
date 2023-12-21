@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import Image from "next/image";
 import { Karantina, Space_Grotesk } from "next/font/google";
 import Navbar from "../components/Navbar";
@@ -19,10 +20,25 @@ export default function Home() {
       <Navbar />
       <div
         id="hero"
-        className={`w-full h-[100vh] bg-[#D9D9D9] flex flex-col justify-center items-center shadow-lg ${styles.backGround}`}
+        className={` w-full h-[100vh] flex flex-col justify-center items-center shadow-lg}`}
       >
-        <div className="w-full flex flex-col p-4 justify-center items-center text-center break-words md:max-w-[60vw]">
-          <p className={` ${karantina.className} text-[#000] text-[5rem] md:text-[8rem] `}>
+        <img
+          src="/Ellipse 1.svg"
+          alt="ellipse"
+          className="absolute top-[-10%] left-0 w-auto h-auto"
+        />
+        <img
+          src="/Ellipse 3.svg"
+          alt="ellipse"
+          className="absolute  right-0 w-auto h-auto"
+        />
+        <div
+          className={`w-full h-[100vh] absolute top-0 left-0 opacity-30 ${styles.backGround} `}
+        ></div>
+        <div className="w-full flex flex-col p-4 z-10 justify-center items-center text-center break-words md:max-w-[60vw]">
+          <p
+            className={` ${karantina.className} text-[#000] text-[5rem] md:text-[8rem] `}
+          >
             META-DATA EDITOR
           </p>
           <p className={`text-[1.5rem] text-[#000] ${spaceGrotesk.className}`}>
@@ -32,9 +48,9 @@ export default function Home() {
         </div>
         <div></div>
       </div>
-      <div 
+      <div
         className="w-full pt-[64px] h-[100vh] bg-[#F4F7F5] flex flex-col justify-around items-center"
-        id="howItWorks"  
+        id="howItWorks"
       >
         <div className="w-full flex flex-col p-4 justify-center items-center text-center break-words md:max-w-[60vw]">
           <p className={` ${karantina.className} text-[#000] text-[4rem] `}>

@@ -9,7 +9,7 @@ export default function Navbar() {
   const isHome = asPath === "/";
 
   return (
-    <div className="fixed w-full h-[64px] px-4 md:px-12 flex flex-row justify-between items-center bg-[#FFF]">
+    <div className="fixed z-[9999] w-full h-[64px] px-4 md:px-12 flex flex-row justify-between items-center bg-[#FFF]">
       <Image
         src="/logo.svg"
         alt="opengraph Logo"

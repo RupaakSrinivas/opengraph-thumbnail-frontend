@@ -1,1 +1,7 @@
-/*just a comment*/
+
+.backGround{
+    background: url("/noise.svg"), 100px 100px repeat, #D9D9D9;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
