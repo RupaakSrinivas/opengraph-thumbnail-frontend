@@ -1,8 +1,9 @@
-/* eslint-disable @next/next/no-img-element */
 import Image from "next/image";
 import { Karantina, Space_Grotesk } from "next/font/google";
 import Navbar from "../components/Navbar";
 import styles from "@/styles/index.module.css";
+import Link from "next/link";
+import Footer from "@/components/Footer";
 
 const karantina = Karantina({
   subsets: ["latin"],
@@ -20,25 +21,31 @@ export default function Home() {
       <Navbar />
       <div
         id="hero"
-        className={` w-full h-screen flex flex-col justify-center items-center overflow-visible shadow-lg`}
+        className={` w-full h-screen flex flex-col justify-around items-center overflow-visible shadow-lg`}
       >
-        <img
+        <Image
           src="/Ellipse 1.svg"
           alt="ellipse"
           className="absolute top-[-10%] left-0 w-auto max-h-full"
+          width={500}
+          height={500}
         />
-        <img
+        <Image
           src="/Ellipse 2.svg"
           alt="ellipse"
           className="absolute bottom-[0px] mb-[-55px] md:mb-0 right-0 w-auto max-h-full"
+          width={500}
+          height={500}
         />
-        <img
+        <Image
           src="/Ellipse 3.svg"
           alt="ellipse"
           className="absolute top-[-5%] right-0 w-auto max-h-full"
+          width={500}
+          height={500}
         />
         <div
-          className={`w-full h-screen absolute top-0 left-0 opacity-30 ${styles.backGround} `}
+          className={`w-full h-screen absolute top-0 left-0 opacity-0 ${styles.backGround} `}
         ></div>
         <div className="w-full flex flex-col p-4 z-10 justify-center items-center text-center break-words md:max-w-[60vw]">
           <p
@@ -53,7 +60,20 @@ export default function Home() {
             tailored content with our user-friendly customization tools.
           </p>
         </div>
-        <div></div>
+        <div className="w-full h-auto z-10 flex flex-col justify-center items-center">
+          <Link href="/create" className="hover:scale-110">
+            <p
+              className={`text-[#fff] bg-[#000] rounded-[0.375rem] px-10 py-3  text-[1rem] md:text-[1.25rem] ${spaceGrotesk.className}`}
+            >
+              Get Started
+            </p>
+          </Link>
+          <p
+            className={`text-[#000] ${spaceGrotesk.className} text-[1rem] text-center md:text-[1.5rem] mt-4`}
+          >
+            Upload your thumbnail and link to change the meta-data!
+          </p>
+        </div>
       </div>
       <div
         className="w-full pt-[64px] h-[100vh] bg-[#F4F7F5] flex flex-col justify-around items-center"
@@ -72,11 +92,19 @@ export default function Home() {
         <Image
           src="/howItWorks.svg"
           alt="tutorial"
-          className="w-auto max-h-[80%] p-8"
+          className="w-auto hidden md:block max-h-[80%] p-8"
           width={1000}
           height={500}
         ></Image>
+        <Image
+          src="/howItWorksMobile.svg"
+          alt="tutorial"
+          className="w-auto md:hidden max-h-[80%] p-8"
+          width={500}
+          height={1000}
+        ></Image>
       </div>
+      <Footer />
     </div>
   );
 }

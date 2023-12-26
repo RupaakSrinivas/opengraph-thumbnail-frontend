@@ -1,6 +1,12 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useRouter } from "next/router";
+import { Space_Grotesk } from "next/font/google";
+
+const spaceGrotesk = Space_Grotesk({
+  subsets: ["latin"],
+  weight: "500",
+});
 
 export default function Navbar() {
   // get the current url
@@ -19,11 +25,11 @@ export default function Navbar() {
       />
       {isHome ? (
         <Link href="/create" className="hover:scale-110">
-          <p className="text-[#000] text-[1.25rem] md:text-[1.5rem]">Get Started</p>
+          <p className={`text-[#fff] bg-[#000] rounded-[0.375rem] px-5 py-3  text-[1rem] md:text-[1.25rem] ${spaceGrotesk.className}`}>Get Started</p>
         </Link>
       ) : (
         <Link href="/" className="hover:scale-110">
-          <p className="text-[#000] text-[1.2rem] md:text-[1.5rem]">Home</p>
+          <p className={`text-[#fff] bg-[#000] rounded-[0.375rem] px-5 py-3  text-[1rem] md:text-[1.25rem] ${spaceGrotesk.className}`}>Home</p>
         </Link>
       )}
     </div>
