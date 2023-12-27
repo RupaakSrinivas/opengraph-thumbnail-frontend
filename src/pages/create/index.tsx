@@ -3,8 +3,7 @@ import Navbar from "@/components/Navbar";
 import { Karantina, Space_Grotesk } from "next/font/google";
 import { useEffect, useState } from "react";
 import styles from "@/styles/index.module.css";
-import Image from "next/image";
-
+import Head from "next/head";
 
 import {
   FacebookShareButton,
@@ -124,6 +123,11 @@ export default function Create() {
 
   return (
     <>
+      <Head>
+        <title>OpenGraph | Create</title>
+        <meta name="title" content="OpenGraph Metadate Editor" />
+        <link rel="icon" href="/favicon.svg" type="image/svg" sizes="any" />
+      </Head>
       <Navbar />
       <div
         id="createPage"
@@ -406,8 +410,7 @@ export default function Create() {
                   className={`w-full h-full text-[1rem] md:text-[1.5rem] text-black  text-ellipsis focus:outline-none ${spaceGrotesk.className}`}
                   value={result}
                   readOnly={true}
-                >
-                </input>
+                ></input>
               </div>
               <button
                 className={` w-auto p-2 md:py-0  mx-2 text-[1rem] md:text-[1.5rem] flex flex-row justify-center items-center text-white bg-[#000] rounded-lg ${spaceGrotesk.className} active:scale-95`}

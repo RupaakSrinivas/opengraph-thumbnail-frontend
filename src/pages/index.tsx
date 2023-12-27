@@ -4,6 +4,7 @@ import Navbar from "../components/Navbar";
 import styles from "@/styles/index.module.css";
 import Link from "next/link";
 import Footer from "@/components/Footer";
+import Head from "next/head";
 
 const karantina = Karantina({
   subsets: ["latin"],
@@ -18,6 +19,11 @@ const spaceGrotesk = Space_Grotesk({
 export default function Home() {
   return (
     <div className="w-full h-screen bg-[#F4F7F5]">
+      <Head>
+        <title>OpenGraph | Home</title>
+        <meta name="title" content="OpenGraph Metadata editor" />
+        <link rel="icon" href="/favicon.svg" type="image/svg" sizes="any" />
+      </Head>
       <Navbar />
       <div
         id="hero"
