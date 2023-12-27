@@ -99,6 +99,7 @@ export default function Home() {
           src="/howItWorks.svg"
           alt="tutorial"
           className="w-auto hidden md:block max-h-[80%] p-8"
+          draggable={false}
           width={1000}
           height={500}
         ></Image>
@@ -106,6 +107,7 @@ export default function Home() {
           src="/howItWorksMobile.svg"
           alt="tutorial"
           className="w-auto md:hidden max-h-[80%] p-8"
+          draggable={false}
           width={500}
           height={1000}
         ></Image>
