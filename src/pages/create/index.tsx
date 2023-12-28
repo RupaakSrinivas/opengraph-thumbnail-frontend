@@ -18,6 +18,7 @@ import {
   WhatsappShareButton,
 } from "next-share";
 import { clear } from "console";
+import Footer from "@/components/Footer";
 
 const karantina = Karantina({
   subsets: ["latin"],
@@ -149,7 +150,7 @@ export default function Create() {
           className="absolute max-h-full right-0 w-auto h-auto"
         />
         <div
-          className={`w-full fixed h-[100%] top-0 left-0 opacity-30 ${styles.backGround} `}
+          className={`w-full fixed h-[100%] top-0 left-0 opacity-30 bg-[url('/noise.svg')] bg-center bg-repeat bg-cover`}
         ></div>
         <div className="w-full z-10 flex flex-col justify-center px-4 mt-[64px] items-center text-center break-words md:max-w-[60vw]">
           <p

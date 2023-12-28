@@ -1,7 +1,6 @@
 import Image from "next/image";
 import { Karantina, Space_Grotesk } from "next/font/google";
 import Navbar from "../components/Navbar";
-import styles from "@/styles/index.module.css";
 import Link from "next/link";
 import Footer from "@/components/Footer";
 import Head from "next/head";
@@ -27,7 +26,7 @@ export default function Home() {
       <Navbar />
       <div
         id="hero"
-        className={` w-full h-screen flex flex-col justify-around items-center overflow-visible shadow-lg`}
+        className={` w-full h-screen flex flex-col justify-center gap-40 md:gap-0 md:justify-around items-center overflow-visible shadow-lg`}
       >
         <Image
           src="/Ellipse 1.svg"
@@ -51,7 +50,7 @@ export default function Home() {
           height={500}
         />
         <div
-          className={`w-full h-screen absolute top-0 left-0 opacity-0 ${styles.backGround} `}
+          className={`w-full h-screen absolute top-0 left-0 opacity-30 bg-[url('/noise.svg')] bg-center bg-repeat bg-cover`}
         ></div>
         <div className="w-full flex flex-col p-4 z-10 justify-center items-center text-center break-words md:max-w-[60vw]">
           <p
