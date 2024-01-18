@@ -37,7 +37,6 @@ export default function Create() {
 
   useEffect(() => {
     const delayDebounceFn = setTimeout(() => {
-
       if (url === "") {
         return;
       }
@@ -62,7 +61,6 @@ export default function Create() {
         })
         .catch((err) => {
           console.log(err);
-
         });
     }, 1000);
 
@@ -84,19 +82,14 @@ export default function Create() {
       }
     });
 
-    document.getElementById("previewTestImage")?.addEventListener("error", () => {
-      if (
-        previewImage != null &&
-        previewImage.getAttribute("src") !=
-          "https://user-images.githubusercontent.com/2351721/31314483-7611c488-ac0e-11e7-97d1-3cfc1c79610e.png"
-      ) {
-        previewImage.setAttribute(
+    document
+      .getElementById("previewTest")
+      ?.addEventListener("error", () => {
+        previewImage?.setAttribute(
           "src",
           "https://user-images.githubusercontent.com/2351721/31314483-7611c488-ac0e-11e7-97d1-3cfc1c79610e.png"
         );
-      }
-
-    });
+      });
     if (image === "") {
       previewImage?.setAttribute(
         "src",
