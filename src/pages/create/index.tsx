@@ -55,9 +55,14 @@ export default function Create() {
           Title.value = data.title;
           Description.value = data.description;
           Image.value = data.image;
+          setUrl(data.url);
+          setTitle(data.title);
+          setDescription(data.description);
+          setImage(data.image);
         })
         .catch((err) => {
           console.log(err);
+          
         });
     }, 1000);
 
