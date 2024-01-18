@@ -39,6 +39,36 @@ export default function Create() {
   const [result, setResult] = useState("");
 
   useEffect(() => {
+    const delayDebounceFn = setTimeout(() => {
+      const previewTestImage = document.getElementById("previewTest");
+      const previewImage = document.getElementById("previewImage");
+      if (url === "") {
+        return;
+      }
+
+      fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/metadata?url=${url}`)
+        .then((res) => res.json())
+        .then((data) => {
+          if (data.title != null && title != "") {
+            setTitle(data.title);
+          }
+          if (data.description != null && description != "") {
+            setDescription(data.description);
+          }
+          if (data.image != null && image != "") {
+            setImage(data.image);
+          }
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }, 1000);
+
+    return () => clearTimeout(delayDebounceFn);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [url]);
+
+  useEffect(() => {
     const previewTestImage = document.getElementById("previewTest");
     const previewImage = document.getElementById("previewImage");
 
