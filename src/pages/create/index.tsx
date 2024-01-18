@@ -2,7 +2,6 @@
 import Navbar from "@/components/Navbar";
 import { Karantina, Space_Grotesk } from "next/font/google";
 import { useEffect, useState } from "react";
-import styles from "@/styles/index.module.css";
 import Head from "next/head";
 
 import {
@@ -17,8 +16,6 @@ import {
   WhatsappIcon,
   WhatsappShareButton,
 } from "next-share";
-import { clear } from "console";
-import Footer from "@/components/Footer";
 
 const karantina = Karantina({
   subsets: ["latin"],
@@ -40,24 +37,24 @@ export default function Create() {
 
   useEffect(() => {
     const delayDebounceFn = setTimeout(() => {
-      const previewTestImage = document.getElementById("previewTest");
-      const previewImage = document.getElementById("previewImage");
+
       if (url === "") {
         return;
       }
+      const Url = document.getElementById("urlInput") as HTMLInputElement;
+      const Title = document.getElementById("titleInput") as HTMLInputElement;
+      const Description = document.getElementById(
+        "descriptionInput"
+      ) as HTMLInputElement;
+      const Image = document.getElementById("imageInput") as HTMLInputElement;
 
       fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/metadata?url=${url}`)
         .then((res) => res.json())
         .then((data) => {
-          if (data.title != null && title != "") {
-            setTitle(data.title);
-          }
-          if (data.description != null && description != "") {
-            setDescription(data.description);
-          }
-          if (data.image != null && image != "") {
-            setImage(data.image);
-          }
+          Url.value = data.url;
+          Title.value = data.title;
+          Description.value = data.description;
+          Image.value = data.image;
         })
         .catch((err) => {
           console.log(err);
