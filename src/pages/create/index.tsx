@@ -62,7 +62,7 @@ export default function Create() {
         })
         .catch((err) => {
           console.log(err);
-          
+
         });
     }, 1000);
 
@@ -84,7 +84,7 @@ export default function Create() {
       }
     });
 
-    document.getElementById("previewImage")?.addEventListener("error", () => {
+    document.getElementById("previewTestImage")?.addEventListener("error", () => {
       if (
         previewImage != null &&
         previewImage.getAttribute("src") !=
@@ -95,6 +95,7 @@ export default function Create() {
           "https://user-images.githubusercontent.com/2351721/31314483-7611c488-ac0e-11e7-97d1-3cfc1c79610e.png"
         );
       }
+
     });
     if (image === "") {
       previewImage?.setAttribute(
