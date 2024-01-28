@@ -24,12 +24,12 @@ export default function Navbar() {
         height={36}
       />
       {isHome ? (
-        <Link href="/create" className="hover:scale-110">
-          <p className={`text-[#fff] bg-[#000] rounded-[0.375rem] px-5 py-3  text-[1rem] md:text-[1.25rem] ${spaceGrotesk.className}`}>Get Started</p>
+        <Link href="/create">
+          <p className={`text-[#fff] bg-[#000] hover:bg-[#1a1a1ae5] rounded-[0.375rem] px-5 py-3  text-[1rem] md:text-[1.25rem] ${spaceGrotesk.className}`}>Get Started</p>
         </Link>
       ) : (
-        <Link href="/" className="hover:scale-110">
-          <p className={`text-[#fff] bg-[#000] rounded-[0.375rem] px-5 py-3  text-[1rem] md:text-[1.25rem] ${spaceGrotesk.className}`}>Home</p>
+        <Link href="/">
+          <p className={`text-[#fff] bg-[#000] hover:bg-[#1a1a1ae5] rounded-[0.375rem] px-5 py-3  text-[1rem] md:text-[1.25rem] ${spaceGrotesk.className}`}>Home</p>
         </Link>
       )}
     </div>

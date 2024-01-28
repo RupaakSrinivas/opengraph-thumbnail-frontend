@@ -66,9 +66,9 @@ export default function Home() {
           </p>
         </div>
         <div className="w-full h-auto z-10 flex flex-col justify-center items-center">
-          <Link href="/create" className="hover:scale-110">
+          <Link href="/create">
             <p
-              className={`text-[#fff] bg-[#000] rounded-[0.375rem] px-10 py-3  text-[1rem] md:text-[1.25rem] ${spaceGrotesk.className}`}
+              className={`text-[#fff] bg-[#000] hover:bg-[#1a1a1ae5] rounded-[0.375rem] px-10 py-3  text-[1rem] md:text-[1.25rem] ${spaceGrotesk.className}`}
             >
               Get Started
             </p>

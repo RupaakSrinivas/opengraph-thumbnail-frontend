@@ -3,6 +3,7 @@ import Navbar from "@/components/Navbar";
 import { Karantina, Space_Grotesk } from "next/font/google";
 import { useEffect, useState } from "react";
 import Head from "next/head";
+import { isURL } from "validator";
 
 import {
   FacebookShareButton,
@@ -37,7 +38,7 @@ export default function Create() {
 
   useEffect(() => {
     const delayDebounceFn = setTimeout(() => {
-      if (url === "") {
+      if (!isURL(url)) {
         return;
       }
       const Url = document.getElementById("urlInput") as HTMLInputElement;
@@ -327,7 +328,7 @@ export default function Create() {
           </div>
         </div>
         <button
-          className={` z-10 p-4 px-6 md:px-16 m-4 mb-12 text-[1rem] md:text-[1.5rem] flex flex-row justify-center items-center text-white bg-[#000] rounded-lg ${spaceGrotesk.className} active:scale-95`}
+          className={` z-10 p-4 px-6 md:px-16 m-4 mb-12 text-[1rem] md:text-[1.5rem] flex flex-row justify-center items-center text-white bg-[#000] rounded-lg ${spaceGrotesk.className} active:scale-95 hover:bg-[#1a1a1ae5]`}
           onClick={Publish}
         >
           Publish
