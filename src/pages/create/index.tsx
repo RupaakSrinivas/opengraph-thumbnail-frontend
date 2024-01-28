@@ -151,8 +151,8 @@ export default function Create() {
   return (
     <>
       <Head>
-        <title>OpenGraph | Create</title>
-        <meta name="title" content="OpenGraph Metadate Editor" />
+        <title>LinkCraft | Create</title>
+        <meta name="title" content="LinkCraft" />
         <link rel="icon" href="/favicon.svg" type="image/svg" sizes="any" />
       </Head>
       <Navbar />

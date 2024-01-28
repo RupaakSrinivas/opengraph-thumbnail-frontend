@@ -19,8 +19,8 @@ export default function Home() {
   return (
     <div className="w-full h-screen bg-[#F4F7F5]">
       <Head>
-        <title>OpenGraph | Home</title>
-        <meta name="title" content="OpenGraph Metadata Editor" />
+        <title>LinkCraft | Home</title>
+        <meta name="title" content="LinkCraft: OpenGraph Metadata Editor" />
         <link rel="icon" href="/favicon.svg" type="image/svg" sizes="any" />
       </Head>
       <Navbar />
