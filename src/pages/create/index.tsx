@@ -187,7 +187,7 @@ export default function Create() {
           <p
             className={`text-[1rem] md:text-[1.5rem] text-[#000] ${spaceGrotesk.className}`}
           >
-            Modify and personalize metadata for images and links, creating
+            Modify and personalize metadata for links, creating
             tailored content with our user-friendly customization tools.
           </p>
         </div>
